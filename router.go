@@ -236,7 +236,7 @@ func (router *Router) broadcastTopologyUpdate(update []*Peer) {
 	for _, p := range update {
 		names[p.Name] = struct{}{}
 	}
-	router.topologyGossip.GossipBroadcast(&topologyGossipData{peers: router.Peers, update: names})
+	router.topologyGossip.GossipRandomNeighbours(&topologyGossipData{peers: router.Peers, update: names})
 }
 
 // OnGossipUnicast implements Gossiper, but always returns an error, as a
